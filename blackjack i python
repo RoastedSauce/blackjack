@@ -1,0 +1,52 @@
+#! /usr/bin/python
+# -*- coding: UTF-8 -*-
+
+import random 
+import math
+
+def Random_varde(kort,r):
+	return (kort[random.randint(0,12)])
+
+def Player_hand(Kort,r):
+	kort1 = Random_varde(Kort, random.randint(0,12))
+	print((kort1)[1])
+	print((kort1)[0])
+	kort2 = Random_varde(Kort, random.randint(0,12))
+	print((kort2)[1])
+	print((kort2)[0])
+
+	print ((kort1)[1] + (kort2)[1])
+
+
+
+def main():
+
+	
+
+	r = random.randint(0,12)
+
+
+	s_ess = ["Spader ess", 11]
+	s2 = ["spader tva", 2]
+	s3 = ["spader tre", 3]
+	s4 = ["spader fyra", 4]
+	s5 = ["spader fem", 5]
+	s6 = ["spader sex", 6]
+	s7 = ["spader sju", 7]
+	s8 = ["spader otta", 8]
+	s9 = ["spader nio", 9]
+	s10 = ["spader tio", 10]
+	s_jack = ["spader knackt", 10]
+	s_dam = ["spader dam", 10]
+	s_kung = ["spader kung", 10]
+
+
+	Kort = [s_ess, s2, s3, s4, s5, s6, s7, s8, s9, s10, s_jack, s_dam, s_kung]
+
+	Player_hand(Kort, r)
+	#print (Random_varde(Kort, r)[0])
+		
+
+
+if __name__ == "__main__":
+	main()
