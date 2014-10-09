@@ -1,4 +1,0 @@
-blackjack
-=========
-
-blackjack i python
