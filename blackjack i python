@@ -1,91 +1,157 @@
-#! /usr/bin/python
-# -*- coding: UTF-8 -*-
 
-import random 
+from graphics import *
 import math
-
-def Random_varde(kort,r):
-	return (kort[random.randint(0,51)])
-
-def Player_hand(Kort,r):
-	kort1 = Random_varde(Kort, random.randint(0,51))
-	print((kort1)[1])
-	print((kort1)[0])
-	kort2 = Random_varde(Kort, random.randint(0,51))
-	print((kort2)[1])
-	print((kort2)[0])
-
-	print ((kort1)[1] + (kort2)[1])
+import random
 
 
+def inRectangle(p, r):
+
+    p1 = r.getP1()
+    p2 = r.getP2()
+
+    smallx = min(p1.getX(), p2.getX())
+    bigx   = max(p1.getX(), p2.getX())
+
+    smally = min(p1.getY(), p2.getY())
+    bigy   = max(p1.getY(), p2.getY())
+
+    return p.getX() > smallx and p.getX() < bigx and p.getY() > smally and p.getY() < bigy
+
+
+
+def Random_varde(kort,rint):
+    return (kort[random.randint(0,51)])
+
+def Player_hand(Kort,rint):
+    kort1 = Random_varde(Kort, random.randint(0,51))
+    print((kort1)[0])
+    kort2 = Random_varde(Kort, random.randint(0,51))
+    print((kort2)[0])
+
+    Handen = (kort1)[1] + (kort2)[1]
+    
+    print (("summan: ") + (str(Handen)))
+
+
+    while Handen <= 21:
+
+        
+
+        kort3 = Random_varde(Kort, random.randint(0,51))
+        print ("Vill du ha ett nytt kort?")
+        Handen  = (Handen + (kort3)[1])
+        print (kort3)[0]
+        print (("summan: ") + (str(Handen)))
+        
+
+    print("spelet slut")
 
 def main():
 
-	
+    w = GraphWin("Programmering 3", 300, 300)
+    
+    r = Rectangle(Point(50, 250), Point(100, 200))
+    r.setFill("Green")
+    r.draw(w)
 
-	r = random.randint(0,51)
+    r2 = Rectangle(Point(150, 250), Point(200, 200))
+    r2.setFill("red")
+    r2.draw(w)
+
+    rint = random.randint(0,51)
+
+    s_ess = ["Spader ess", 11]
+    s2 = ["spader tva", 2]
+    s3 = ["spader tre", 3]
+    s4 = ["spader fyra", 4]
+    s5 = ["spader fem", 5]
+    s6 = ["spader sex", 6]
+    s7 = ["spader sju", 7]
+    s8 = ["spader otta", 8]
+    s9 = ["spader nio", 9]
+    s10 = ["spader tio", 10]
+    s_jack = ["spader knackt", 10]
+    s_dam = ["spader dam", 10]
+    s_kung = ["spader kung", 10]
+    h_ess = ["Hjarter ess", 11]
+    h2 = ["Hjarter tva", 2]
+    h3 = ["Hjarter tre", 3]
+    h4 = ["Hjarter fyra", 4]
+    h5 = ["Hjarter fem", 5]
+    h6 = ["Hjarter sex", 6]
+    h7 = ["Hjarter sju", 7]
+    h8 = ["Hjarter otta", 8]
+    h9 = ["Hjarter nio", 9]
+    h10 = ["Hjarter tio", 10]
+    h_jack = ["Hjarter knackt", 10]
+    h_dam = ["Hjarter dam", 10]
+    h_kung = ["Hjarter kung", 10]
+    r_ess = ["Ruter ess", 11]
+    r2 = ["Ruter tva", 2]
+    r3 = ["Ruter tre", 3]
+    r4 = ["Ruter fyra", 4]
+    r5 = ["Ruter fem", 5]
+    r6 = ["Ruter sex", 6]
+    r7 = ["Ruter sju", 7]
+    r8 = ["Ruter otta", 8]
+    r9 = ["Ruter nio", 9]
+    r10 = ["Ruter tio", 10]
+    r_jack = ["Ruter knackt", 10]
+    r_dam = ["Ruter dam", 10]
+    r_kung = ["Ruter kung", 10]
+    k_ess = ["Klover ess", 11]
+    k2 = ["Klover tva", 2]
+    k3 = ["Klover tre", 3]
+    k4 = ["Klover fyra", 4]
+    k5 = ["Klover fem", 5]
+    k6 = ["Klover sex", 6]
+    k7 = ["Klover sju", 7]
+    k8 = ["Klover otta", 8]
+    k9 = ["Klover nio", 9]
+    k10 = ["Klover tio", 10]
+    k_jack = ["Klover knackt", 10]
+    k_dam = ["Klover dam", 10]
+    k_kung = ["Klover kung", 10]
 
 
-	s_ess = ["Spader ess", 11]
-	s2 = ["spader tva", 2]
-	s3 = ["spader tre", 3]
-	s4 = ["spader fyra", 4]
-	s5 = ["spader fem", 5]
-	s6 = ["spader sex", 6]
-	s7 = ["spader sju", 7]
-	s8 = ["spader otta", 8]
-	s9 = ["spader nio", 9]
-	s10 = ["spader tio", 10]
-	s_jack = ["spader knackt", 10]
-	s_dam = ["spader dam", 10]
-	s_kung = ["spader kung", 10]
-	h_ess = ["Hjarter ess", 11]
-	h2 = ["Hjarter tva", 2]
-	h3 = ["Hjarter tre", 3]
-	h4 = ["Hjarter fyra", 4]
-	h5 = ["Hjarter fem", 5]
-	h6 = ["Hjarter sex", 6]
-	h7 = ["Hjarter sju", 7]
-	h8 = ["Hjarter otta", 8]
-	h9 = ["Hjarter nio", 9]
-	h10 = ["Hjarter tio", 10]
-	h_jack = ["Hjarter knackt", 10]
-	h_dam = ["Hjarter dam", 10]
-	h_kung = ["Hjarter kung", 10]
-	r_ess = ["Ruter ess", 11]
-	r2 = ["Ruter tva", 2]
-	r3 = ["Ruter tre", 3]
-	r4 = ["Ruter fyra", 4]
-	r5 = ["Ruter fem", 5]
-	r6 = ["Ruter sex", 6]
-	r7 = ["Ruter sju", 7]
-	r8 = ["Ruter otta", 8]
-	r9 = ["Ruter nio", 9]
-	r10 = ["Ruter tio", 10]
-	r_jack = ["Ruter knackt", 10]
-	r_dam = ["Ruter dam", 10]
-	r_kung = ["Ruter kung", 10]
-	k_ess = ["Klover ess", 11]
-	k2 = ["Klover tva", 2]
-	k3 = ["Klover tre", 3]
-	k4 = ["Klover fyra", 4]
-	k5 = ["Klover fem", 5]
-	k6 = ["Klover sex", 6]
-	k7 = ["Klover sju", 7]
-	k8 = ["Klover otta", 8]
-	k9 = ["Klover nio", 9]
-	k10 = ["Klover tio", 10]
-	k_jack = ["Klover knackt", 10]
-	k_dam = ["Klover dam", 10]
-	k_kung = ["Klover kung", 10]
+    Kort = [s_ess, s2, s3, s4, s5, s6, s7, s8, s9, s10, s_jack, s_dam, s_kung, h_ess, h2, h3, h4, h5, h6, h7, h8, h9, h10, h_jack, h_dam, h_kung, r_ess, r2, r3, r4, r5, r6, r7, r8, r9, r10, r_jack, r_dam, r_kung, k_ess, k2, k3, k4, k5, k6, k7, k8, k9, k10, k_jack, k_dam, k_kung,]
+
+    Player_hand(Kort, rint)
 
 
-	Kort = [s_ess, s2, s3, s4, s5, s6, s7, s8, s9, s10, s_jack, s_dam, s_kung, h_ess, h2, h3, h4, h5, h6, h7, h8, h9, h10, h_jack, h_dam, h_kung, r_ess, r2, r3, r4, r5, r6, r7, r8, r9, r10, r_jack, r_dam, r_kung, k_ess, k2, k3, k4, k5, k6, k7, k8, k9, k10, k_jack, k_dam, k_kung,]
+    while True:
+        # Wait for mouse click
+        p = w.getMouse()
 
-	Player_hand(Kort, r)
-	#print (Random_varde(Kort, r)[0])
-		
+        # Handle mouse click on Point p inside window w.
+        handleClick(p, r, r2)
+
+
+def handleClick(p, r, r2):
+    
+    
+    if (inRectangle(p,r)):
+        print ("JA")
+
+
+    #elif (inRectangle(p,r2)):
+     #   print ("nej")
+    
+    
+
+
+
+
+    # TODO: You must add code here.
+
+    # TIP: Use inCircle() and inRectangle().
+
+    # TIP: Use randomColorFill() and move().
+
+
+    return None
+
 
 
 if __name__ == "__main__":
-	main()
+    main()
