@@ -5,13 +5,13 @@ import random
 import math
 
 def Random_varde(kort,r):
-	return (kort[random.randint(0,12)])
+	return (kort[random.randint(0,51)])
 
 def Player_hand(Kort,r):
-	kort1 = Random_varde(Kort, random.randint(0,12))
+	kort1 = Random_varde(Kort, random.randint(0,51))
 	print((kort1)[1])
 	print((kort1)[0])
-	kort2 = Random_varde(Kort, random.randint(0,12))
+	kort2 = Random_varde(Kort, random.randint(0,51))
 	print((kort2)[1])
 	print((kort2)[0])
 
@@ -23,7 +23,7 @@ def main():
 
 	
 
-	r = random.randint(0,12)
+	r = random.randint(0,51)
 
 
 	s_ess = ["Spader ess", 11]
